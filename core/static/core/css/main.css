@@ -67,7 +67,7 @@ a#scrollUp i {
 *******Header CSS******
 **************************/
 .header_top {
-  background: none repeat scroll 0 0 #F0F0E9;
+  background: none repeat scroll 0 0 #080808;
 }
 
 .contactinfo ul li:first-child {
@@ -291,7 +291,8 @@ ul.sub-menu {
 }
 
 .dropdown ul.sub-menu li .active {
-  color: #B9291B padding-left: 0;
+  color: #B9291B;
+  padding-left: 0;
 }
 
 .navbar-nav li ul.sub-menu li {
@@ -1038,7 +1039,7 @@ h2.title {
   background: #ccccc6;
 }
 
-.recommended_items h2 {}
+/* .recommended_items h2 {} */
 
 .our_partners {
   overflow: hidden;
@@ -1404,9 +1405,9 @@ h2.title {
   overflow: hidden;
 }
 
-.login-form {}
+/* .login-form {}
 
-.signup-form {}
+.signup-form {} */
 
 .login-form h2,
 .signup-form h2 {
@@ -1699,8 +1700,8 @@ h2.title {
   float: left;
   margin-right: 10px
 }
-
-.user_info>li>span {}
+/* 
+.user_info>li>span {} */
 
 .user_info input,
 select,

@@ -7,7 +7,12 @@ app_name = "core"
 urlpatterns = [
     path("", views.index, name="home"),
     path("shop/", views.item_list, name="shop"),
-    path("product/<slug>/", ProductDetailView.as_view(), name="product"),
-    path("add_to_cart/<slug>/", views.add_to_cart, name="add_to_cart"),
+    path("product/<slug:slug>/<int:id>/", ProductDetailView.as_view(), name="product"),
+    path("add_to_cart/<slug:slug>/<int:id>/", views.add_to_cart, name="add_to_cart"),
+    path(
+        "remove_from_cart/<slug:slug>/<int:id>/",
+        views.remove_from_cart,
+        name="remove_from_cart",
+    ),
     path("contact/", views.contact, name="contact"),
 ]
