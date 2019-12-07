@@ -47,24 +47,24 @@ class Item(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, blank=True, null=True
     )
-    brand = models.ForeignKey(
-        Brands, on_delete=models.CASCADE, blank=True, null=True
-    )
+    brand = models.ForeignKey(Brands, on_delete=models.CASCADE, blank=True, null=True)
     label = models.CharField(choices=LABEL_CHOICES, max_length=1, default="P")
-    image = models.ImageField(default="default.jpg", upload_to="items")
+    image = models.ImageField(default="default.jpg", upload_to="Items/%Y/%M/%d")
     slug = models.SlugField(max_length=200, db_index=True)
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("core:product", kwargs={"slug": self.slug,"id":self.id})
+        return reverse("core:product", kwargs={"slug": self.slug, "id": self.id})
 
     def get_add_to_cart_url(self):
-        return reverse("core:add_to_cart", kwargs={"slug": self.slug,"id":self.id})
-    
+        return reverse("core:add_to_cart", kwargs={"slug": self.slug, "id": self.id})
+
     def remove_from_cart_url(self):
-        return reverse("core:remove_from_cart", kwargs={"slug": self.slug,"id":self.id})
+        return reverse(
+            "core:remove_from_cart", kwargs={"slug": self.slug, "id": self.id}
+        )
 
 
 class OrderItem(models.Model):
