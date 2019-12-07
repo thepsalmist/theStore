@@ -12,7 +12,7 @@
 					<!--product-details-->
 					<div class="col-sm-5">
 						<div class="view-product">
-							<a href="{{object.get_absolute_url}}"><img src="{{object.image}}" alt="" /></a>
+							<a href="{{item.get_absolute_url}}"><img src="{{item.image.url}}" alt="" /></a>
 							<h3>ZOOM</h3>
 						</div>
 					</div>
@@ -20,7 +20,7 @@
 						<div class="product-information">
 							<!--/product-information-->
 							<img src="{% static 'images/product-details/new.jpg' %}" class="newarrival" alt="" />
-							<a href="{{object.get_absolute_url}}">
+							<a href="{{item.get_absolute_url}}">
 								<h2>{{item.title}}</h2>
 							</a>
 
@@ -29,13 +29,13 @@
 								<span>US ${{object.price}}</span>
 								<label>Quantity:</label>
 								<input type="text" value="3" />
-								<a href="{{object.get_add_to_cart_url}}">
+								<a href="{{item.get_add_to_cart_url}}">
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Add to cart
 									</button>
 								</a>
-								<a href="{{object.get_remove_from_cart_url}}">
+								<a href="{{item.get_remove_from_cart_url}}">
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Remove from cart

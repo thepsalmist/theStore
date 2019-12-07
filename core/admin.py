@@ -1,11 +1,7 @@
 from django.contrib import admin
-from .models import Item, Order, OrderItem, Category, Brands
+from .models import Item, Order, OrderItem, Category, Brand
 
-# admin.site.register(Item)
-# admin.site.register(OrderItem)
-# admin.site.register(Order)
-# admin.site.register(Category)
-# admin.site.register(Brands)
+
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     list_display = ["title", "slug", "price", "category", "brand", "timestamp", "label"]
@@ -14,12 +10,24 @@ class ItemAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ["title", "slug"]
+    prepopulated_fields = {"slug": ("title",)}
+
+
+@admin.register(Brand)
+class BrandAdmin(admin.ModelAdmin):
+    list_display = ["title", "slug"]
+    prepopulated_fields = {"slug": ("title",)}
+
+
 @admin.register(OrderItem)
-class OrderItem(admin.ModelAdmin):
+class OrderItemAdmin(admin.ModelAdmin):
     list_display = ["item", "ordered", "quantity"]
 
 
 @admin.register(Order)
-class Order(admin.ModelAdmin):
+class OrderAdmin(admin.ModelAdmin):
     list_display = ["user", "ordered", "startdate", "ordered_date"]
 

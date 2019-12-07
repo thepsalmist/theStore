@@ -19,12 +19,18 @@ class Category(models.Model):
         ("GM", "Games"),
     )
     title = models.CharField(choices=CATEGOTY_CHOICES, max_length=2, default="BS")
+    slug = models.SlugField(max_length=200, db_index=True)
+
+    class Meta:
+        ordering = ("title",)
+        verbose_name = "category"
+        verbose_name_plural = "categories"
 
     def __str__(self):
         return self.title
 
 
-class Brands(models.Model):
+class Brand(models.Model):
     BRAND_CHOICES = (
         ("MS", "Microsoft"),
         ("AD", "Adobe"),
@@ -33,6 +39,12 @@ class Brands(models.Model):
         ("NT", "Norton"),
     )
     title = models.CharField(choices=BRAND_CHOICES, max_length=2, default="MS")
+    slug = models.SlugField(max_length=200, db_index=True)
+
+    class Meta:
+        ordering = ("title",)
+        verbose_name = "brand"
+        verbose_name_plural = "brands"
 
     def __str__(self):
         return self.title
@@ -42,12 +54,13 @@ class Item(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     price = models.FloatField()
+    available = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     discount_price = models.FloatField(blank=True, null=True)
     category = models.ForeignKey(
-        Category, on_delete=models.CASCADE, blank=True, null=True
+        Category, on_delete=models.CASCADE, blank=True, default=1
     )
-    brand = models.ForeignKey(Brands, on_delete=models.CASCADE, blank=True, null=True)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, blank=True, default=1)
     label = models.CharField(choices=LABEL_CHOICES, max_length=1, default="P")
     image = models.ImageField(default="default.jpg", upload_to="Items/%Y/%M/%d")
     slug = models.SlugField(max_length=200, db_index=True)
