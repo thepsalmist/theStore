@@ -9,21 +9,26 @@ from .models import Item, Order, OrderItem, Category, Brand
 
 def item_list(request):
     items = Item.objects.filter(available=True)
-    categories = Category.objects.all
-    brands = Brand.objects.all
-    context = {"items": items,"categories": categories, "brands": brands}
+    categories = Category.objects.all()
+    brands = Brand.objects.all()
+    context = {"items": items, "categories": categories, "brands": brands}
     return render(request, "core/shop.html", context)
 
 
 def index(request, category_slug=None):
     category = None
     items = Item.objects.filter(available=True)[:6]
-    categories = Category.objects.all
-    brands = Brand.objects.all
+    categories = Category.objects.all()
+    brands = Brand.objects.all()
     if category_slug:
-        category = get_object_or_404(Category,slug=category_slug)
+        category = get_object_or_404(Category, slug=category_slug)
         items = items.filter(category=category)
-    context = {"items": items,"category":category, "categories": categories, "brands": brands}
+    context = {
+        "items": items,
+        "category": category,
+        "categories": categories,
+        "brands": brands,
+    }
     return render(request, "core/index.html", context)
 
 
@@ -31,12 +36,6 @@ def product_detail(request, id, slug):
     item = get_object_or_404(Item, id=id, slug=slug)
     context = {"item": item}
     return render(request, "core/product.html", context)
-
-
-# class ProductDetailView(DetailView):
-#     model = Item
-#     template_name = "core/product.html"
-#     context_object_name = "items"
 
 
 def add_to_cart(request, id, slug):

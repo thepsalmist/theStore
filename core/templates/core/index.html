@@ -77,14 +77,18 @@
 <section>
 	<div class="container">
 		<div class="row">
-			{% include "core/sidebar.html" with categories=categories brands=brands%}
+			{% include "core/sidebar.html" with categories=categories category=category brands=brands%}
 			<div class="col-sm-9 padding-right">
 				<div class="category-tab">
 					<!--category-tab-->
 					<div class="col-sm-12">
 						<ul class="nav nav-tabs">
-							{% for category in categories%}
-							<li><a href="{{category.title}}" data-toggle="tab">{{category.get_title_display}}</a></li>
+							{% for cat in categories%}
+							<li>
+								{% if category.slug == cat.slug %}
+								<a href="{{cat.get_absolute_url}}" data-toggle="tab">{{cat.get_title_display}}</a>
+								{% endif %}
+							</li>
 
 							{% endfor %}
 						</ul>
