@@ -1407,7 +1407,7 @@ h2.title {
 #form {
   display: block;
   margin-bottom: 185px;
-  margin-top: 185px;
+  margin-top: 15px;
   overflow: hidden;
 }
 
@@ -1466,7 +1466,6 @@ h2.title {
   padding: 6px 25px;
 }
 
-.login-form label {}
 
 .login-form label input {
   border: medium none;
@@ -1935,8 +1934,6 @@ textarea {
   font-weight: 500;
   margin-bottom: 17px;
 }
-
-.single-blog-post>a {}
 
 .blog-post-area .single-blog-post a img {
   border: 1px solid #F7F7F0;

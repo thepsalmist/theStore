@@ -39,10 +39,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
     "django.contrib.sites",
+    # allauth
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    # providers
+    # "allauth.socialaccount.providers.facebook",
+    # "allauth.socialaccount.providers.google",
 ]
 
 MIDDLEWARE = [
@@ -129,4 +134,7 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 SITE_ID = 1
+LOGIN_REDIRECT_URL = "/"
 
+# crispy
+CRISPY_TEMPLATE_PACK = "bootstrap4"

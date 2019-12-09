@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>The Shop | Best Software Marketplace</title>
     <link href="{% static 'core/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'core/css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'core/css/prettyPhoto.css' %}" rel="stylesheet">
@@ -30,7 +30,10 @@
 <body>
     {% include "core/header.html" %}
     {% block content %}
+
     {% endblock content%}
+    {% block extra_body %}
+    {% endblock %}
     {% include "core/footer.html"%}
     <script src="{% static 'core/js/jquery.js' %}"></script>
     <script src="{% static 'core/js/bootstrap.min.js' %}"></script>

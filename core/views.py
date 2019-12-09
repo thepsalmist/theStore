@@ -34,7 +34,9 @@ def index(request, category_slug=None):
 
 def product_detail(request, id, slug):
     item = get_object_or_404(Item, id=id, slug=slug)
-    context = {"item": item}
+    categories = Category.objects.all()
+    brands = Brand.objects.all()
+    context = {"item": item, "categories": categories, "brands": brands}
     return render(request, "core/product.html", context)
 
 
