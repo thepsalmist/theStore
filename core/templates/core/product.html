@@ -26,9 +26,9 @@
 
 							<img src="images/product-details/rating.png" alt="" />
 							<span>
-								<span>US ${{object.price}}</span>
+								<span>${{item.price}}</span>
 								<label>Quantity:</label>
-								<input type="text" value="3" />
+								<input type="text" value="{{order_item.item.quantity}}" />
 								<a href="{{item.get_add_to_cart_url}}">
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
@@ -38,10 +38,14 @@
 
 							</span>
 							<p>
+								{% if item.available %}
 								<b>Availability:</b> In Stock
+								{% else %}
+								<b>Availability:</b> Out of Stock
+								{% endif %}
 							</p>
 							<p><b>Condition:</b> {{item.get_label_display}}</p>
-							<p><b>Brand:</b>{{item.get_brand_label}}</p>
+							<p><b>Brand:</b> {{item.brand.get_title_display}}</p>
 
 						</div>
 						<!--/product-information-->

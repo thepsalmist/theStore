@@ -78,13 +78,13 @@ def add_to_cart(request, id, slug):
         else:
             messages.info(request, "This item was added to your cart")
             order.items.add(order_item)
-            return redirect("core:product", id=id, slug=slug)
+            return redirect("core:cart")
     else:
         messages.info(request, "This item quantity was updated")
         ordered_date = timezone.now()
         order = Order.objects.create(user=request.user, ordered_date=ordered_date)
         order.items.add(order_item)
-        return redirect("core:product", id=id, slug=slug)
+        return redirect("core:cart")
 
 
 @login_required

@@ -90,6 +90,9 @@
         margin-left: 0;
         margin-top: 15px;
     }
+    .prouctinfo img{
+        width: auto;
+    }
     .item-control i {
         font-size: 12px;
         padding: 5px 6px;

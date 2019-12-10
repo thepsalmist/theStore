@@ -20,22 +20,22 @@
 									<img src="{{item.image.url}}" alt="" />
 									<h2>${{item.price}}</h2>
 									<p>{{item.title}}</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
+									<a href="{{item.get_add_to_cart_url}}" class="btn btn-default add-to-cart"><i
+											class="fas fa-shopping-cart"></i>Add to cart</a>
 								</div>
 								<div class="product-overlay">
 									<div class="overlay-content">
 										<h2>${{item.price}}</h2>
 										<p>{{item.title}}</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-												class="fa fa-shopping-cart"></i>Add to cart</a>
+										<a href="{{item.get_add_to_cart_url}}" class="btn btn-default add-to-cart"><i
+												class="fas fa-shopping-cart"></i>Add to cart</a>
 									</div>
 								</div>
 							</div>
 							<div class="choose">
 								<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+									<li><a href="#"><i class="fas fa-plus-square"></i>Add to wishlist</a></li>
+									<li><a href="#"><i class="fas fa-plus-square"></i>Add to compare</a></li>
 								</ul>
 							</div>
 						</div>
