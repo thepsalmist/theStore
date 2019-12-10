@@ -3,7 +3,6 @@
 **************************/
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap');
 
-
 body {
   font-family: 'Quicksand', sans-serif;
   position: relative;
@@ -252,7 +251,7 @@ a#scrollUp i {
   background: #F0F0E9;
   border: medium none;
   color: #B2B2B2;
-  font-family: 'roboto';
+  font-family: ''Quicksand', sans-serif;';
   font-size: 12px;
   font-weight: 300;
   height: 35px;
@@ -840,7 +839,6 @@ h2.title {
   right: 0;
 }
 
-
 .productinfo h2 {
   color: #B9291B;
   font-family: 'Quicksand', sans-serif;
@@ -866,7 +864,6 @@ h2.title {
   width: 100%;
   max-height: 85%;
   object-fit: contain;
-
 }
 
 .productinfo {
@@ -1046,7 +1043,6 @@ h2.title {
 }
 
 /* .recommended_items h2 {} */
-
 .our_partners {
   overflow: hidden;
 }
@@ -1414,7 +1410,6 @@ h2.title {
 /* .login-form {}
 
 .signup-form {} */
-
 .login-form h2,
 .signup-form h2 {
   color: #696763;
@@ -1465,7 +1460,6 @@ h2.title {
   font-family: 'Quicksand', sans-serif;
   padding: 6px 25px;
 }
-
 
 .login-form label input {
   border: medium none;
@@ -1593,6 +1587,11 @@ h2.title {
   /*  margin: 15px -70px 10px 25px;*/
 }
 
+.cart_product img {
+  height: 100px;
+  width: 100px;
+}
+
 .cart_quantity_button a {
   background: #F0F0E9;
   color: #696763;
@@ -1705,9 +1704,9 @@ h2.title {
   float: left;
   margin-right: 10px
 }
-/* 
-.user_info>li>span {} */
 
+/*
+.user_info>li>span {} */
 .user_info input,
 select,
 textarea {

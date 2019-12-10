@@ -1,7 +1,16 @@
 from django.urls import path
 
 from . import views
-from .views import item_list, index, product_detail, add_to_cart, contact
+from .views import (
+    item_list,
+    index,
+    product_detail,
+    add_to_cart,
+    remove_from_cart,
+    remove_item_from_cart,
+    contact,
+    OrderSummaryView,
+)
 
 app_name = "core"
 
@@ -15,6 +24,12 @@ urlpatterns = [
         views.remove_from_cart,
         name="remove_from_cart",
     ),
+    path(
+        "remove_item_from_cart/<slug:slug>/<int:id>/",
+        views.remove_item_from_cart,
+        name="remove_item_from_cart",
+    ),
+    path("cart/", OrderSummaryView.as_view(), name="cart"),
     path("contact/", views.contact, name="contact"),
 ]
 
