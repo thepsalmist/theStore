@@ -57,7 +57,9 @@ def product_detail(request, id, slug):
     brands = Brand.objects.all()
     context = {"item": item, "categories": categories, "brands": brands}
     return render(request, "core/product.html", context)
-
+    
+def recommended(request):
+    pass
 
 @login_required
 def add_to_cart(request, id, slug):
