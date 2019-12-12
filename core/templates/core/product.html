@@ -111,91 +111,45 @@
 				<div class="recommended_items">
 					<!--recommended_items-->
 					<h2 class="title text-center">recommended items</h2>
-
 					<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner">
 							<div class="item active">
+								{% for item in similar_brands %}
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
-												<img src="images/home/recommend1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
+												<img src="{{item.image.url}}" alt="" />
+												<h2>${{item.price}}</h2>
+												<p>{{item.title}}</p>
 												<button type="button" class="btn btn-default add-to-cart"><i
 														class="fa fa-shopping-cart"></i>Add to cart</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/recommend2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i
-														class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/recommend3.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i
-														class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
+								{% if forloop.counter|divisibleby:3 and not forloop.last %}
 							</div>
 							<div class="item">
-								<div class="col-sm-4">
+								{% endif %}
+								{% endfor %}
+								<!-- <div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
-												<img src="images/home/recommend1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
+												<img src="{{item.image.url}}" alt="" />
+												<h2>${{item.price}}</h2>
+												<p>{{item.price}}</p>
 												<button type="button" class="btn btn-default add-to-cart"><i
 														class="fa fa-shopping-cart"></i>Add to cart</button>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/recommend2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i
-														class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/recommend3.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i
-														class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
+								</div> -->
+
 							</div>
+
+
 						</div>
 						<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
 							<i class="fa fa-angle-left"></i>
@@ -204,6 +158,7 @@
 							<i class="fa fa-angle-right"></i>
 						</a>
 					</div>
+
 				</div>
 				<!--/recommended_items-->
 
@@ -214,3 +169,28 @@
 
 
 {% endblock content%}
+
+<div class="carousel-inner">
+	<div class="item active">
+		{% for prod in pro %}
+		<div class="col-sm-3">
+			<div class="product-image-wrapper1">
+				<div class="single-products">
+					<div class="productinfo text-center">
+						<!--sample image, same for all--><img
+							src="{% static 'header/images/home/2508__14291.1437672247.200.200.jpg' %}" alt="" />
+						<h2>{{prod.productname}}</h2>
+						<p>{{prod.producttype}}</p>
+						<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
+							cart</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% if forloop.counter|divisibleby:4 and not forloop.last %}
+	</div>
+	<div class="item">
+		{% endif %}
+		{% endfor %}
+	</div>
+</div>

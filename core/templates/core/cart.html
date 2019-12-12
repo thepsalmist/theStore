@@ -138,8 +138,12 @@
 						<li>Shipping Cost <span>Free</span></li>
 						<li>Total <span>${{object.get_total}}</span></li>
 					</ul>
-					<a class="btn btn-default update" href="#">Update</a>
-					<a class="btn btn-default check_out" href="/checkout/">Check Out</a>
+					{% if user.is_authenticated %}
+					<a class="btn btn-default check_out ml-2" href="#">Checkout</a>
+					{% else %}
+					<a class="btn btn-default check_out" href="{% url 'core:checkout' %}">Checkout</a>
+					<a class="btn btn-default check_out" href="/checkout/">Guest Checkout</a>
+					{% endif %}
 				</div>
 			</div>
 		</div>

@@ -63,10 +63,10 @@
                 <div class="col-md-8 clearfix">
                     <div class="shop-menu clearfix pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="checkout.html"><i class="fas fa-crosshairs"></i> Checkout</a></li>
+                            <li><a href="{% url 'core:checkout' %}"><i class="fas fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="{% url 'core:cart' %}"><i class="fas fa-shopping-cart"></i> Cart</a></li>
 
-                            {% if request.user.is_authenticated %}
+                            {% if user.is_authenticated %}
                             <li><a href="#"><i class="fas fa-user"></i> Account</a></li>
                             <li><a href="#"><i class="fas fa-user"></i> Logout</a></li>
                             {% else%}

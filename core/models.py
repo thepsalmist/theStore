@@ -2,7 +2,6 @@ from django.db import models
 from django.conf import settings
 from django.shortcuts import reverse
 from django.utils import timezone
-from taggit.managers import TaggableManager
 from PIL import Image
 
 
@@ -68,7 +67,6 @@ class Item(models.Model):
     label = models.CharField(choices=LABEL_CHOICES, max_length=1, default="P")
     image = models.ImageField(default="default.jpg", upload_to="Items/%Y/%M/%d")
     slug = models.SlugField(max_length=200, db_index=True)
-    tags = TaggableManager()
 
     def __str__(self):
         return self.title

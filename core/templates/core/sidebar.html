@@ -19,9 +19,10 @@
             <!--brands_products-->
             <h2>Brands</h2>
             <div class="brands-name">
-                {% for brand in brands %}
+                {% for brand in brand_count %}
                 <ul class="nav nav-pills nav-stacked">
-                    <li><a href="#"> <span class="pull-right">(50)</span>{{brand.get_title_display}}</a>
+                    <li><a href="#"> <span
+                                class="pull-right">{{brand.brand__title__count}}</span>{{brand.brand__title}}</a>
                     </li>
 
                 </ul>

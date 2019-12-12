@@ -10,6 +10,7 @@ from .views import (
     remove_item_from_cart,
     contact,
     OrderSummaryView,
+    CheckOutView,
 )
 
 app_name = "core"
@@ -30,6 +31,7 @@ urlpatterns = [
         name="remove_item_from_cart",
     ),
     path("cart/", OrderSummaryView.as_view(), name="cart"),
+    path("checkout/", CheckOutView.as_view(), name="checkout"),
     path("contact/", views.contact, name="contact"),
 ]
 
