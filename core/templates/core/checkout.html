@@ -41,47 +41,32 @@
 
 		<div class="shopper-informations">
 			<div class="row">
-				<div class="col-sm-3">
-					<div class="shopper-info">
-						<p>Shopper Information</p>
-						<form>
-							<input type="text" placeholder="Display Name">
-							<input type="text" placeholder="User Name">
-							<input type="password" placeholder="Password">
-							<input type="password" placeholder="Confirm password">
-						</form>
-						<a class="btn btn-primary" href="#">Get Quotes</a>
-						<a class="btn btn-primary" href="#">Continue</a>
-					</div>
-				</div>
-				<div class="col-sm-5 clearfix ">
-					<div class="bill-to">
-						<p>Bill To</p>
-						<div class="form-group">
-							<form method="POST" action=".">
-								{% csrf_token %}
+				<form method="POST" action=".">
+					{% csrf_token %}
+					<div class="col-sm-6 col-sm-offset-1 clearfix ">
+						<div class="bill-to">
+							<p>Bill To</p>
+							<div class="form-group">
 								{{form.email|as_crispy_field}}
 								{{form.first_name|as_crispy_field}}
 								{{form.last_name|as_crispy_field}}
 								{{form.address|as_crispy_field}}
 								{{form.zip_code|as_crispy_field}}
 								{{form.country|as_crispy_field}}
-
-								<button class="btn btn-primary btn-lg" href="#">Continue to Checkout</button>
-							</form>
-
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="order-message">
-						<p>Order Details</p>
-						<!-- <textarea name="message" placeholder="Notes about your order, Special Notes for Delivery"
-							rows="16"></textarea> -->
-						{{form.shipping_order|as_crispy_field}}
-						<label>{{form.ship_to_address|as_crispy_field}}</label>
+					<div class="col-sm-4">
+						<div class="order-message">
+							<p>Order Details</p>
+							<!-- <textarea name="message" placeholder="Notes about your order, Special Notes for Delivery"
+										rows="16"></textarea> -->
+							{{form.shipping_order|as_crispy_field}}
+							<label>{{form.ship_to_address|as_crispy_field}}</label>
+						</div>
 					</div>
-				</div>
+					<button class="btn btn-primary btn-lg" href="#">Continue to Checkout</button>
+				</form>
 			</div>
 		</div>
 		<div class="review-payment">

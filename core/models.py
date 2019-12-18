@@ -12,13 +12,14 @@ LABEL_CHOICES = (("P", "primary"), ("S", "secondary"), ("D", "danger"))
 class Category(models.Model):
     # create tuple, first category goes to dB second displayed on screen
     CATEGOTY_CHOICES = (
-        ("ED", "Education"),
-        ("BS", "Business"),
-        ("DS", "Design"),
-        ("SC", "Security"),
-        ("GM", "Games"),
+        ("EDUCATION", "Education"),
+        ("BUSINESS", "Business"),
+        ("DESIGN", "Design"),
+        ("SECURITY", "Security"),
+        ("GAMES", "Games"),
     )
-    title = models.CharField(choices=CATEGOTY_CHOICES, max_length=2, default="BS")
+    title = models.CharField(choices=CATEGOTY_CHOICES,
+                             max_length=20, default="BUSINESS")
     slug = models.SlugField(max_length=200, db_index=True)
 
     class Meta:
@@ -35,13 +36,14 @@ class Category(models.Model):
 
 class Brand(models.Model):
     BRAND_CHOICES = (
-        ("MS", "Microsoft"),
-        ("AD", "Adobe"),
-        ("AV", "Avast"),
-        ("KS", "Kaspersky"),
-        ("NT", "Norton"),
+        ("MICROSOFT", "Microsoft"),
+        ("ADOBE", "Adobe"),
+        ("AVAST", "Avast"),
+        ("KASPERSKY", "Kaspersky"),
+        ("NORTON", "Norton"),
     )
-    title = models.CharField(choices=BRAND_CHOICES, max_length=2, default="MS")
+    title = models.CharField(choices=BRAND_CHOICES,
+                             max_length=20, default="MICROSOFT")
     slug = models.SlugField(max_length=200, db_index=True)
 
     class Meta:
@@ -63,9 +65,11 @@ class Item(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, blank=True, default=1
     )
-    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, blank=True, default=1)
+    brand = models.ForeignKey(
+        Brand, on_delete=models.CASCADE, blank=True, default=1)
     label = models.CharField(choices=LABEL_CHOICES, max_length=1, default="P")
-    image = models.ImageField(default="default.jpg", upload_to="Items/%Y/%M/%d")
+    image = models.ImageField(default="default.jpg",
+                              upload_to="Items/%Y/%M/%d")
     slug = models.SlugField(max_length=200, db_index=True)
 
     def __str__(self):
@@ -107,7 +111,8 @@ class OrderItem(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
     items = models.ManyToManyField(OrderItem)
     startdate = models.DateTimeField(auto_now_add=True)
     ordered_date = models.DateTimeField()

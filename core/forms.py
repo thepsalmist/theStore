@@ -8,7 +8,7 @@ PAYMENT_CHOICES = (("C", "Credit Card"), ("P", "PayPal"))
 
 class CheckoutForm(forms.Form):
 
-    email = forms.EmailField()
+    email = forms.EmailField(widget=forms.TextInput(attrs={"placeholder": "Email"}))
     first_name = forms.CharField(
         required=True, widget=forms.TextInput(attrs={"placeholder": "First Name"})
     )
